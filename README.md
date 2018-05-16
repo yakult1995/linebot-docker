@@ -1,8 +1,12 @@
 # LINEbot用Docker環境
 ## 事前設定
 * ゲストOSはhttps通信出来る環境
+  * ローカルで遊ぶだけなら./local内のngrokを起動してローカルまでトンネル引っ張る
+  * 起動コマンド
+    * ```./local/ngrok http 8888```
+    * ターミナルに表示されるhttpsアドレスをLINE Devveloperに設定
 ## 起動コマンド
-* ./docker内で```docker-compose up -d```
+  * ```./docker/docker-compose up -d```
 
 ## APPサーバ
 * python 3.6
