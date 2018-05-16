@@ -1,0 +1,33 @@
+version: '2'
+services:
+  web:
+    build:
+      context: ./
+    volumes:
+      - ../app:/app/
+    ports:
+      - 8888:80
+    container_name: app
+    networks:
+     - bot-network
+    depends_on:
+     - mysql
+    environment:
+      CHANNEL_ACCESS_TOKEN : {CHANNEL_ACCESS_TOKEN}
+      CHANNEL_SECRET       : {CHANNEL_SECRET}
+
+  mysql:
+    image: mysql
+    container_name: mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - ../db/:/var/lib/mysql
+      - ./mysql-conf/:/etc/mysql/conf.d
+    environment:
+      MYSQL_ROOT_PASSWORD: {MYSQL_ROOT_PASSWORD}
+    networks:
+     - bot-network
+
+networks:
+ bot-network:
