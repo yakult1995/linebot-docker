@@ -1,4 +1,6 @@
 # LINEbot用Docker環境
+## 事前設定
+* ゲストOSはhttps通信出来る環境
 ## 起動コマンド
 * ./docker内で```docker-compose up -d```
 
